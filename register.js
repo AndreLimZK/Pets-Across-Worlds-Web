@@ -2,8 +2,6 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
 
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-analytics.js";
-
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -39,9 +37,6 @@ const firebaseConfig = {
 // Initialize Firebase
 
 const app = initializeApp(firebaseConfig);
-
-const analytics = getAnalytics(app);
-
 
 //submit button
 const submitButton = document.getElementById('submit');

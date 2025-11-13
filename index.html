@@ -3,28 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pets Across Worlds</title>
-    <script type="module" src="register.js" defer></script>
+    <title>Search Database</title>
+    <script type ="module" src="index.js" defer></script>
 </head>
 <body>
-    <form>
-        <h3>Login </h3>
+    <h2>Search Pets Database</h2>
 
-        <label for="username">Username</label>
-        <input type="email" placeholder="Enter your email" id="email" required>
+    <input type="text" id="searchInput" placeholder="Search for pets...">
+    <button id="searchButton">Search</button>
 
-        <label for="password">Password</label>
-        <input type="password" placeholder="Enter your password" id="password" required>
-
-        <button type="submit">Login </button>
-        
-        <div class="form">
-            <p>Don't have an account? 
-                <span> <a href="register.html">Register here</a></span>
-        </div>
-    </p>
-        
-    </form>
+    <div id="results"></div>
     
 </body>
 </html>
