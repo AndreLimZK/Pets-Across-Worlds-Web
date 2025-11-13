@@ -1,19 +1,21 @@
 // Import the functions you need from the SDKs you need
 
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
 
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-analytics.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-analytics.js";
 
-  // TODO: Add SDKs for Firebase products that you want to use
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
 
-  // https://firebase.google.com/docs/web/setup#available-libraries
+// TODO: Add SDKs for Firebase products that you want to use
+
+// https://firebase.google.com/docs/web/setup#available-libraries
 
 
-  // Your web app's Firebase configuration
+// Your web app's Firebase configuration
 
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
-  const firebaseConfig = {
+const firebaseConfig = {
 
     apiKey: "AIzaSyCrJL5Wf2aYbJxraIil_Yz9TfTsimASnjs",
 
@@ -31,21 +33,37 @@
 
     measurementId: "G-YJXMNE9CY6"
 
-  };
+};
 
 
-  // Initialize Firebase
+// Initialize Firebase
 
-  const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-  const analytics = getAnalytics(app);
+const analytics = getAnalytics(app);
 
-  //inputs
-const emailInput = document.getElementById('email').value;
-const passwordInput = document.getElementById('password').value;
+
 //submit button
 const submitButton = document.getElementById('submit');
-submitButton.addEventListener('click', function(event) {
+submitButton.addEventListener('click', function (event) {
     event.preventDefault();
-    alert(5);
+
+    //inputs
+    const emailInput = document.getElementById('email').value;
+    const passwordInput = document.getElementById('password').value;
+
+
+    createUserWithEmailAndPassword(auth, emailInput, passwordInput)
+        .then((userCredential) => {
+            // Signed up 
+            const user = userCredential.user;
+            alert("Creating Account...")
+            // ...
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage);
+            // ..
+        });
 });
