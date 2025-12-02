@@ -1,17 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
 import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-database.js";
-
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-    apiKey: "AIzaSyCrJL5Wf2aYbJxraIil_Yz9TfTsimASnjs",
-    authDomain: "petsacrossworlds.firebaseapp.com",
-    databaseURL: "https://petsacrossworlds-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "petsacrossworlds",
-    storageBucket: "petsacrossworlds.firebasestorage.app",
-    messagingSenderId: "247220418271",
-    appId: "1:247220418271:web:723622892e38f0e4ac9b6a",
-    measurementId: "G-YJXMNE9CY6"
-};
+import { firebaseConfig } from "./firebase-config.js";
 
 //Initialize Firebase
 const app = initializeApp(firebaseConfig);
