@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <script type="module" src="register.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <form>
-        <h3>Create Account</h3>
+        <h2>Create Account</h2>
+
+        <label for="username">Username</label>
+        <input type="text" placeholder="Enter your username" id="username" required>
 
         <label for="email">Email</label>
         <input type="email" placeholder="Enter your email" id="email" required>
@@ -16,7 +20,7 @@
         <label for="password">Password</label>
         <input type="password" placeholder="Enter your password" id="password" required>
 
-        <button type="submit">Register</button>
+        <button id="signUpButton">Register</button>
         
         <div class="form">
             <p>Already have an account? 
