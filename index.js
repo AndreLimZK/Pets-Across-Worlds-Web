@@ -11,11 +11,15 @@ const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
 const resultsDiv = document.getElementById('results');
 
+function showMessage(msg) {
+    resultsDiv.innerHTML = `<p>${msg}</p>`;
+}
+
 //When user clicks search button
 searchButton.addEventListener('click', () => {
     const query = searchInput.value.trim();
     if (!query) {
-        resultsDiv.innerHTML = "<p>Please enter a search term.</p>";
+        showMessage("<p>Please enter a search term.</p>");
         return;
     }
 
@@ -58,14 +62,14 @@ searchButton.addEventListener('click', () => {
                 });
 
             } else {
-                resultsDiv.innerHTML = `<p>No players found matching "${query}".</p>`;
+                showMessage(`<p>No players found matching "${query}".</p>`);
             }
         } else {
-            resultsDiv.innerHTML = "<p>No data available.</p>";
+            showMessage("<p>No data available.</p>");
         }
     })
         .catch((error) => {
             console.error(error);
-            resultsDiv.innerHTML = "<p>Error retrieving data. Please try again later.</p>";
+            showMessage("<p>Error retrieving data. Please try again later.</p>");
         });
 });

@@ -64,3 +64,10 @@ body {
     margin-top: 20px;
     width: 80%;
 }
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 20px;
+}
