@@ -15,12 +15,24 @@
         <h2>Search Pets Database</h2>
     </header>
 
-    <div class="button">
+    <div class="search-container">
         <input type="text" id="searchInput" placeholder="Search for players...">
         <button id="searchButton">Search</button>
-    </div>    
+    </div>
+
+    <template id="recordTemplate">
+        <div class="record">
+            <h3 class="player-name">Player: </h3>
+            <div class="pet-list">Pets:</div>
+        </div>
+    </template>
+
 
     <div id="results"></div>
 
+    <div class="signup-link">
+        <p>Don't have an account? <a href="register.html">Register here</a></p>
+
 </body>
+
 </html>

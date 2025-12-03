@@ -33,15 +33,30 @@ searchButton.addEventListener('click', () => {
             );
 
             if (matches.length > 0) {
-                resultsDiv.innerHTML = matches.map(([id, p]) => `
-                    <div class="record">
-                        <strong>ID:</strong> ${id}<br>
-                        <strong>Name:</strong> ${p.username}<br>
-                        ${p.pets ? `<strong>Pets:</strong> ${Object.keys(p.pets).join(",")}` : ""}
-                    </div>
-                    `
-                )
-                    .join("");
+                resultsDiv.innerHTML = "";
+
+                const template = document.getElementById("recordTemplate");
+
+                matches.forEach(([id, p]) => {
+                    const clone = template.content.cloneNode(true);
+
+                    clone.querySelector(".player-name").textContent = p.username;
+
+                    const petList = clone.querySelector(".pet-list");
+
+                    if (p.pets) {
+                        Object.entries(p.pets).forEach(([petId, petData]) => {
+                            const petLine = document.createElement("p");
+                            petLine.textContent = `${petId} - ${petData.petName}`;
+                            petList.appendChild(petLine);
+                        });
+                    } else {
+                        petList.textContent = "No pets found.";
+                    }
+
+                    resultsDiv.appendChild(clone);
+                });
+
             } else {
                 resultsDiv.innerHTML = `<p>No players found matching "${query}".</p>`;
             }
