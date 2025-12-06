@@ -12,32 +12,33 @@
 <body>
     <header>
         <h1>Pets Across Worlds</h1>
-        <h2>Search Pets Database</h2>
+        <h2>Search for other Players and Pets</h2>
     </header>
 
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="Search for players...">
         <button id="searchButton">Search</button>
+
+        <template id="recordTemplate">
+            <div class="record">
+                <h3 class="player-name">Player: </h3>
+                <div class="pet-list">Pets:</div>
+            </div>
+        </template>
     </div>
 
-    <template id="recordTemplate">
-        <div class="record">
-            <h3 class="player-name">Player: </h3>
-            <div class="pet-list">Pets:</div>
-        </div>
-    </template>
-
     <div id="results"></div>
-
 </body>
 
 <footer>
-    <div class="signin-link">
-        <p>Have an account? <a href="login.html">Sign in here</a></p>
-    </div>
+    <div class="link-container">
+        <div class="signin-link">
+            <p>Have an account? <a href="login.html">Sign in here</a></p>
+        </div>
 
-    <div class="signup-link">
-        <p>Don't have an account? <a href="register.html">Register here</a></p>
+        <div class="signup-link">
+            <p>Don't have an account? <a href="register.html">Register here</a></p>
+        </div>
     </div>
 </footer>
 

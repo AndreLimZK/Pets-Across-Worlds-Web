@@ -56,7 +56,7 @@ if (signInBtn) {
                 window.location.href = "index.html";
             })
             .catch((error) => {
-                alert(error.message);
+                alert("email or password is incorrect. try again");
             })
     });
 }
