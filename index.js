@@ -29,48 +29,66 @@ searchButton.addEventListener('click', () => {
     const dbRef = ref(db);
 
     //Search by player name
-    get(child(dbRef, 'players')).then((snapshot) => {
-        if (snapshot.exists()) {
+    get(child(dbRef, 'players'))
+        .then(snapshot => {
+            if (!snapshot.exists()) {
+                showMessage("No data available.");
+                return;
+            }
+
             const players = snapshot.val();
-            console.log(players);
 
             //Find all players whose name contains the search term
             const matches = Object.entries(players).filter(([id, p]) =>
                 p.username && p.username.toLowerCase().includes(query.toLowerCase())
             );
 
-            if (matches.length > 0) {
-                resultsDiv.innerHTML = "";
-
-                const template = document.getElementById("recordTemplate");
-
-                matches.forEach(([id, p]) => {
-                    const clone = template.content.cloneNode(true);
-
-                    clone.querySelector(".player-name").textContent = p.username;
-
-                    const petList = clone.querySelector(".pet-list");
-
-                    if (p.pets) {
-                        Object.entries(p.pets).forEach(([petId, petData]) => {
-                            const petLine = document.createElement("p");
-                            petLine.textContent = `${petId} - ${petData.petName}`;
-                            petList.appendChild(petLine);
-                        });
-                    } else {
-                        petList.textContent = "No pets found.";
-                    }
-
-                    resultsDiv.appendChild(clone);
-                });
-
-            } else {
+            if (matches.length === 0) {
                 showMessage(`<p>No players found matching "${query}".</p>`);
+                return;
             }
-        } else {
-            showMessage("<p>No data available.</p>");
-        }
-    })
+
+            resultsDiv.innerHTML = "";
+
+            const template = document.getElementById("recordTemplate");
+
+            matches.forEach(([id, p]) => {
+                const clone = template.content.cloneNode(true);
+
+                clone.querySelector(".player-name").textContent = p.username;
+
+                const petList = clone.querySelector(".pet-list");
+
+                if (p.pets) {
+                    Object.entries(p.pets).forEach(([species, petData]) => {
+                        // Parent div for the pet
+                        const petDiv = document.createElement("div");
+                        petDiv.classList.add("pet-entry");
+
+                        // Pet name line
+                        const petNameLine = document.createElement("p");
+                        petNameLine.textContent = `${species} - ${petData.petName}`;
+                        petDiv.appendChild(petNameLine);
+
+                        // Individual stats lines (vertical)
+                        const stats = ["Energy", "Food", "Mood", "Highscore"];
+                        stats.forEach(stat => {
+                            const statLine = document.createElement("p");
+                            statLine.textContent = `${stat}: ${petData[stat.toLowerCase()]}`;
+                            statLine.style.marginLeft = "20px"; // optional indentation
+                            petDiv.appendChild(statLine);
+                        });
+
+                        petList.appendChild(petDiv);
+                    });
+                } else {
+                    petList.textContent = "No pets found.";
+                }
+
+
+                resultsDiv.appendChild(clone);
+            });
+        })
         .catch((error) => {
             console.error(error);
             showMessage("<p>Error retrieving data. Please try again later.</p>");
@@ -134,9 +152,10 @@ async function loadChart() {
             responsive: true,
             maintainAspectRatio: false, // fill the parent div
             scales: {
-                y: { beginAtZero: true,
-                    ticks: { stepSize: 1}
-                 }
+                y: {
+                    beginAtZero: true,
+                    ticks: { stepSize: 1 }
+                }
             }
         }
     });
