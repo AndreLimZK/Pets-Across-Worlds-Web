@@ -1,10 +1,13 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
 import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-database.js";
 import { firebaseConfig } from "./firebase-config.js";
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
 
 //Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+const firestoreDb = getFirestore(app);
+
 
 //DOM elements
 const searchInput = document.getElementById('searchInput');
@@ -73,3 +76,71 @@ searchButton.addEventListener('click', () => {
             showMessage("<p>Error retrieving data. Please try again later.</p>");
         });
 });
+
+// Chart.js - Example: Display number of pets per player
+async function loadChart() {
+    const snapshot = await get(ref(db, "players"));
+
+    if (!snapshot.exists()) {
+        console.warn("No players found.");
+        return;
+    }
+
+    const players = snapshot.val();
+    const counts = {};
+
+    // Count pets
+    Object.values(players).forEach(player => {
+        if (!player.pets) return;
+
+        Object.entries(player.pets).forEach(([petId]) => {
+            const species = petId; // or use petData.petName if you want nicknames
+            counts[species] = (counts[species] || 0) + 1;
+        });
+    });
+
+    const labels = Object.keys(counts);
+    const values = Object.values(counts);
+
+    if (labels.length === 0) {
+        console.warn("No pet data found to chart.");
+        return;
+    }
+
+    const chartCanvas = document.getElementById("petsChart");
+
+    // Safe destroy: only call destroy if it's a Chart instance
+    if (window.petsChart instanceof Chart) {
+        window.petsChart.destroy();
+    }
+
+    // Force canvas to fill parent container
+    chartCanvas.style.display = "block";
+    chartCanvas.style.width = "100%";
+    chartCanvas.style.height = "100%";
+
+    // Create new chart
+    new Chart(chartCanvas, {
+        type: "bar",
+        data: {
+            labels: labels,
+            datasets: [{
+                label: "Number of Pets",
+                data: values,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false, // fill the parent div
+            scales: {
+                y: { beginAtZero: true,
+                    ticks: { stepSize: 1}
+                 }
+            }
+        }
+    });
+}
+
+// Run the function
+loadChart();
