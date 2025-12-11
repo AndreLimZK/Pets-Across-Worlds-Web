@@ -6,23 +6,24 @@ header {
     gap: 6px;
     width: 100%;
     padding: 15px 0;
-    background-color: rgb(60, 128, 255);
+    background-color: rgba(214, 184, 135);
+    font-family: 'Upheaval TT (BRK)', sans-serif;
 }
 
 h1 {
-    margin: 0;
+    margin: 10;
     font-size: 36px;
     color: rgb(0, 0, 0);
 }
 
 body { 
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(223, 201, 181);
     align-items: center;
     justify-content: center;
     display: flex;
     flex-direction: column;
-
     padding-bottom: 100px;
+    font-family: 'Upheaval TT (BRK)', sans-serif;
 }
 
 .search-container {
@@ -38,9 +39,9 @@ body {
 
 #searchInput {
     flex: 0 0 70%;
-    background-color: rgb(43, 80, 247); 
+    background-color: rgba(214, 184, 135, 1); 
     border: none;
-    color: white;
+    color: black;
     padding: 15px 32px;
     text-align: center;
     display: block;
@@ -51,9 +52,9 @@ body {
 
 #searchButton {
     flex: 0 0 20%;
-    background-color: #4c6baf; 
+    background-color: rgb(229, 212, 187); 
     border: none;
-    color: white;
+    color: black;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -64,7 +65,7 @@ body {
 }
 
 #searchButton:hover {
-    background-color: #4645a0;
+    background-color: rgb(182, 162, 128);
 }
 
 #recordTemplate {
@@ -73,7 +74,7 @@ body {
 }
 
 .record {
-    background-color: #ddd;
+    background-color: #daaa62;
     padding: 12px 16px;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -90,7 +91,7 @@ body {
 }
 
 #results {
-    background-color: #f0f4ff;
+    background-color: #a5a5a5;
     padding: 30px;
     margin: 20px auto;
     max-width: 600px;
@@ -104,26 +105,69 @@ body {
 footer {
     position: fixed;
     bottom: 0;
-    text-align: center;
+    text-align: right;
     display: flex;
     flex-direction: row;
     padding: 20px 0;
-    background-color: rgb(200, 200, 200);
+    background-color: rgba(214, 184, 135, 1);
     width: 100%;
+    min-height: 60px;
 }
 
 .link-container {
+    text-align: right;
     display: flex;
-    justify-content: center;
+    justify-content: right;
     gap: 20px;
 }
 
-.signup-link {
+#auth-links {
+    text-align: right;    
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
     margin-left: 10px;
-    font-weight: bold;
 }
 
-.signin-link {
-    margin-left: 10px;
-    font-weight: bold;
+#auth-links:hover {
+    text-decoration: underline;
+}
+
+/* Styles for profile page */
+
+#homeButton {
+    background-color: rgb(230, 193, 138); 
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#signOutButton {
+    background-color: rgb(230, 193, 138); 
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#petList {
+    list-style-type: disc;
+    padding-left: 20px;
+    background: rgb(219, 179, 133);
+}
+
+#petCollection {
+    margin-top: 20px;
+    background-color: rgb(219, 180 10)
 }
