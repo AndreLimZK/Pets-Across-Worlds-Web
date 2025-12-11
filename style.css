@@ -16,7 +16,7 @@ h1 {
     color: rgb(0, 0, 0);
 }
 
-body { 
+body {
     background-color: rgb(223, 201, 181);
     align-items: center;
     justify-content: center;
@@ -39,7 +39,7 @@ body {
 
 #searchInput {
     flex: 0 0 70%;
-    background-color: rgba(214, 184, 135, 1); 
+    background-color: rgba(214, 184, 135, 1);
     border: none;
     color: black;
     padding: 15px 32px;
@@ -53,7 +53,7 @@ body {
 
 #searchButton {
     flex: 0 0 20%;
-    background-color: rgb(229, 212, 187); 
+    background-color: rgb(229, 212, 187);
     border: none;
     color: black;
     padding: 15px 32px;
@@ -79,7 +79,7 @@ body {
     background-color: #daaa62;
     padding: 12px 16px;
     border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .player-name {
@@ -98,7 +98,7 @@ body {
     margin: 20px auto;
     max-width: 600px;
     border-radius: 12px;
-font-family: 'Upheaval TT (BRK)', sans-serif;
+    font-family: 'Upheaval TT (BRK)', sans-serif;
     display: flex;
     flex-direction: row;
     gap: 15px;
@@ -125,7 +125,7 @@ footer {
 }
 
 #auth-links {
-    text-align: right;    
+    text-align: right;
     text-decoration: none;
     color: rgb(0, 0, 0);
     font-size: 16px;
@@ -137,8 +137,8 @@ footer {
 }
 
 #homeButton {
-    background-color: rgb(230, 193, 138); 
-    border: none;
+    background-color: rgb(230, 193, 138);
+    border: 3px solid rgb(122, 122, 122);
     color: black;
     padding: 10px 20px;
     text-align: center;
@@ -148,11 +148,12 @@ footer {
     margin: 4px 2px;
     cursor: pointer;
     font-family: 'Upheaval TT (BRK)', sans-serif;
+    border-radius: 10px;
 }
 
 #signOutButton {
-    background-color: rgb(230, 193, 138); 
-    border: none;
+    background-color: rgb(230, 193, 138);
+    border: 3px solid rgb(122, 122, 122);
     color: black;
     padding: 10px 20px;
     text-align: center;
@@ -162,32 +163,33 @@ footer {
     margin: 4px 2px;
     cursor: pointer;
     font-family: 'Upheaval TT (BRK)', sans-serif;
+    border-radius: 10px;
 }
 
 #petList {
     list-style-type: disc;
-    padding-left: 20px;
+    padding: 20px;
+    margin: 10px;
     background: rgb(219, 179, 133);
     color: white;
+    border-radius: 8px;
 }
 
 #petCollection {
-    margin-top: 20px;
-    background-color: rgb(170, 170, 170);
     font-size: 20px;
     padding: 15px;
     font-family: 'Upheaval TT (BRK)', sans-serif;
     color: black;
 }
 
-/* Login page styles */
+/* Auth pages styles */
 form {
-    width: 300px;               
-    margin: 50px auto;        
-    padding: 20px;              
-    background-color: #7a7a7a;  
-    border-radius: 10px;        
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2); 
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #7a7a7a;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     font-family: 'Upheaval TT (BRK)', sans-serif;
     color: white;
 }
@@ -203,12 +205,12 @@ form {
 
 /* Make input fields larger */
 .form-group input {
-    width: 100%;               /* Full width */
-    padding: 10px 12px;        /* Larger height */
-    font-size: 16px;            /* Bigger text */
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 16px;
     border: 1px solid #cfa957;
     border-radius: 5px;
-    box-sizing: border-box;     /* Include padding in width */
+    box-sizing: border-box;
 }
 
 /* Style the button */
@@ -218,7 +220,7 @@ button#signInButton {
     margin-top: 20px;
     font-size: 16px;
     font-family: 'Upheaval', sans-serif;
-    background-color: #af984c;
+    background-color: #c7ac55;
     color: white;
     border: none;
     border-radius: 5px;
@@ -226,28 +228,46 @@ button#signInButton {
     font-family: 'Upheaval TT (BRK)', sans-serif;
 }
 
-button#signInButton:hover {
+button#sigInButton:hover {
+    background-color: #a08345;
+}
+
+button#signUpButton {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    font-size: 16px;
+    font-family: 'Upheaval', sans-serif;
+    background-color: #c4aa54;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Upheaval TT (BRK)', sans-serif;
+}
+
+button#sigUpButton:hover {
     background-color: #a08345;
 }
 
 /* Style the bottom text */
-.registerRedirect {
+.authRedirect {
     margin-top: 20px;
     text-align: center;
 }
 
-.registerRedirect p {
+.authRedirect p {
     margin-top: 15px;
     font-size: 18px;
 }
 
-.registerRedirect a {
+.authRedirect a {
     color: #ffffff;
     text-decoration: none;
     font-size: 16px;
 }
 
-.registerRedirect a:hover {
+.authRedirect a:hover {
     text-decoration: underline;
-    color:#cfa957;
+    color: #cfa957;
 }

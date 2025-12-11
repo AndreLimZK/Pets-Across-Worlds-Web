@@ -29,6 +29,8 @@ if (signUpBtn) {
                 });
 
                 alert("Creating Account...");
+
+                window.location.href = "index.html";
             })
             .catch((error) => {
                 alert(error.message);

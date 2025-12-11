@@ -17,25 +17,25 @@
         <h2>Search for other Players and Pets</h2>
     </header>
 
+    <h1>Create Account</h1>
     <form>
-        <h2>Create Account</h2>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" placeholder="Enter your username" id="username" required>
 
-        <label for="username">Username</label>
-        <input type="text" placeholder="Enter your username" id="username" required>
+            <label for="email">Email</label>
+            <input type="email" placeholder="Enter your email" id="email" required>
 
-        <label for="email">Email</label>
-        <input type="email" placeholder="Enter your email" id="email" required>
+            <label for="password">Password</label>
+            <input type="password" placeholder="Enter your password" id="password" required>
 
-        <label for="password">Password</label>
-        <input type="password" placeholder="Enter your password" id="password" required>
+            <button id="signUpButton">Register</button>
 
-        <button id="signUpButton">Register</button>
-
-        <div class="form">
-            <p>Already have an account?
-                <span> <a href="login.html">Login here</a></span>
+            <div class="authRedirect">
+                <p>Already have an account?</p>
+                    <span> <a href="login.html">Login here</a></span>
+            </div>
         </div>
-        </p>
     </form>
 
 </body>
