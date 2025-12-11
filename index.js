@@ -136,6 +136,7 @@ async function loadChart() {
     chartCanvas.style.display = "block";
     chartCanvas.style.width = "100%";
     chartCanvas.style.height = "100%";
+    Chart.defaults.font.family = "'Upheaval TT (BRK)', sans-serif";
 
     // Create new chart
     new Chart(chartCanvas, {
@@ -145,6 +146,8 @@ async function loadChart() {
             datasets: [{
                 label: "Number of Pets",
                 data: values,
+                backgroundColor: "rgba(243, 200, 107, 0.6)",
+                borderColor: "rgba(243, 200, 107, 1)",
                 borderWidth: 1
             }]
         },

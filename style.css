@@ -48,6 +48,7 @@ body {
     font-size: 16px;
     margin: 12px auto;
     cursor: pointer;
+    font-family: 'Upheaval TT (BRK)', sans-serif;
 }
 
 #searchButton {
@@ -62,6 +63,7 @@ body {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    font-family: 'Upheaval TT (BRK)', sans-serif;
 }
 
 #searchButton:hover {
@@ -96,7 +98,7 @@ body {
     margin: 20px auto;
     max-width: 600px;
     border-radius: 12px;
-
+font-family: 'Upheaval TT (BRK)', sans-serif;
     display: flex;
     flex-direction: row;
     gap: 15px;
@@ -112,6 +114,7 @@ footer {
     background-color: rgba(214, 184, 135, 1);
     width: 100%;
     min-height: 60px;
+    font-family: 'Upheaval TT (BRK)', sans-serif;
 }
 
 .link-container {
@@ -133,8 +136,6 @@ footer {
     text-decoration: underline;
 }
 
-/* Styles for profile page */
-
 #homeButton {
     background-color: rgb(230, 193, 138); 
     border: none;
@@ -146,6 +147,7 @@ footer {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    font-family: 'Upheaval TT (BRK)', sans-serif;
 }
 
 #signOutButton {
@@ -159,15 +161,93 @@ footer {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    font-family: 'Upheaval TT (BRK)', sans-serif;
 }
 
 #petList {
     list-style-type: disc;
     padding-left: 20px;
     background: rgb(219, 179, 133);
+    color: white;
 }
 
 #petCollection {
     margin-top: 20px;
-    background-color: rgb(219, 180 10)
+    background-color: rgb(170, 170, 170);
+    font-size: 20px;
+    padding: 15px;
+    font-family: 'Upheaval TT (BRK)', sans-serif;
+    color: black;
+}
+
+/* Login page styles */
+form {
+    width: 300px;               
+    margin: 50px auto;        
+    padding: 20px;              
+    background-color: #7a7a7a;  
+    border-radius: 10px;        
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2); 
+    font-family: 'Upheaval TT (BRK)', sans-serif;
+    color: white;
+}
+
+/* Space out labels and inputs */
+.form-group label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Make input fields larger */
+.form-group input {
+    width: 100%;               /* Full width */
+    padding: 10px 12px;        /* Larger height */
+    font-size: 16px;            /* Bigger text */
+    border: 1px solid #cfa957;
+    border-radius: 5px;
+    box-sizing: border-box;     /* Include padding in width */
+}
+
+/* Style the button */
+button#signInButton {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    font-size: 16px;
+    font-family: 'Upheaval', sans-serif;
+    background-color: #af984c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Upheaval TT (BRK)', sans-serif;
+}
+
+button#signInButton:hover {
+    background-color: #a08345;
+}
+
+/* Style the bottom text */
+.registerRedirect {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.registerRedirect p {
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+.registerRedirect a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.registerRedirect a:hover {
+    text-decoration: underline;
+    color:#cfa957;
 }
