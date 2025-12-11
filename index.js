@@ -71,10 +71,10 @@ searchButton.addEventListener('click', () => {
                         petDiv.appendChild(petNameLine);
 
                         // Individual stats lines (vertical)
-                        const stats = ["Energy", "Food", "Mood", "Highscore"];
-                        stats.forEach(stat => {
+                        const stats = {Energy:"energyLevel", Food: "foodLevel", Mood: "moodLevel", Highscore: "highscore"};
+                        Object.entries(stats).forEach(([stat, key]) => {
                             const statLine = document.createElement("p");
-                            statLine.textContent = `${stat}: ${petData[stat.toLowerCase()]}`;
+                            statLine.textContent = `${stat}: ${petData[key]}`;
                             statLine.style.marginLeft = "20px"; // optional indentation
                             petDiv.appendChild(statLine);
                         });
