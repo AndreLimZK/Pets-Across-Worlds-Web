@@ -25,7 +25,10 @@ body {
     padding-bottom: 100px;
     font-family: 'Upheaval TT (BRK)', sans-serif;
 }
-
+.logo {
+    width:25%;
+    height: auto;
+}
 .search-container {
     width: 100%;
     display: flex;
