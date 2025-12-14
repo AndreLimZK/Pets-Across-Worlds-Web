@@ -55,7 +55,11 @@ onAuthStateChanged(auth, async (user) => {
                     // Optionally add stats vertically
                     const stats = document.createElement("ul");
                     stats.innerHTML = `
-                                <li>Energy: ${pet.energyLevel}</li>
+                                <li>Energy: ${typeof pet.energyLevel === "number"
+                            ? Math.round(pet.energyLevel * 10) / 10
+                            : pet.energyLevel
+                        }</li>
+
                                 <li>Food: ${pet.foodLevel}</li>
                                 <li>Mood: ${pet.moodLevel}</li>
                                 <li>Highscore: ${pet.highscore}</li>

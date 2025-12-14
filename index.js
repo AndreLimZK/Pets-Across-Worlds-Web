@@ -71,13 +71,22 @@ searchButton.addEventListener('click', () => {
                         petDiv.appendChild(petNameLine);
 
                         // Individual stats lines (vertical)
-                        const stats = {Energy:"energyLevel", Food: "foodLevel", Mood: "moodLevel", Highscore: "highscore"};
+                        const stats = { Energy: "energyLevel", Food: "foodLevel", Mood: "moodLevel", Highscore: "highscore" };
                         Object.entries(stats).forEach(([stat, key]) => {
                             const statLine = document.createElement("p");
-                            statLine.textContent = `${stat}: ${petData[key]}`;
-                            statLine.style.marginLeft = "20px"; // optional indentation
+
+                            let value = petData[key];
+
+                            // Round ONLY energy to 2 decimal places
+                            if (key === "energyLevel" && typeof value === "number") {
+                                value = Math.round(value * 100) / 100;
+                            }
+
+                            statLine.textContent = `${stat}: ${value}`;
+                            statLine.style.marginLeft = "20px";
                             petDiv.appendChild(statLine);
                         });
+
 
                         petList.appendChild(petDiv);
                     });
