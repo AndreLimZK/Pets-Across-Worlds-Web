@@ -12,5 +12,5 @@ Find the game here: <a href="https://github.com/XnopytAHH/Pets-Across-Worlds">Pe
 ### Art and Assets
 Game Logo - Custom asset by Jayson Lim <br>
 ### Libraries
-Firebase Database
+Firebase Database <br>
 Firebase Auth
