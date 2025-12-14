@@ -33,7 +33,7 @@ if (signUpBtn) {
                 window.location.href = "index.html";
             })
             .catch((error) => {
-                alert(error.message);
+                alert("Please enter a valid username, email or password.");
             })
     });
 }
